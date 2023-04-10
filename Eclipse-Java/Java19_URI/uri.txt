@@ -1,0 +1,11 @@
+java.net 패키지 : URL, InetAddress, TCP, UDP
+
+1.URL :	Uniform Resource Locator 주소(위치)
+url은 특정 서버의 특정 리소스에 대한 구체적인 위치를 서술
+
+2.URN : Uniform Resource Name 대상(이름)
+URN은 콘텐츠를 이루는 한 리소스에 대해,
+그 리소스의 위치에 영향 받지 않는 유일무이한 이름 역할
+
+3.URI : Uniform Resource Identifier 식별자
+URI = URL+URN

@@ -1,0 +1,28 @@
+<변수(variable)> : 메모리에 값을 저장하기 위한 공간 - 데이터 저장하는 방
+
+-기본형 : 값이 바로 저장
+		byte, short, int, long, float, double
+		char, boolean
+-참조형 : 주소값 저장
+		String
+		
+선언과 대입
+선언 : 방을 만든다.
+대입 : 방에 값을 넣는다.
+
+선언
+	타입  변수명;
+대입
+	변수명 = 값;
+
+int a = 10;
+int b = 20;
+
+int res = a + b; 
+         10 + 20
+         
+        
+상수 : 한번 값을 저장하면 변경 불가능.
+final
+
+final int A = 10;

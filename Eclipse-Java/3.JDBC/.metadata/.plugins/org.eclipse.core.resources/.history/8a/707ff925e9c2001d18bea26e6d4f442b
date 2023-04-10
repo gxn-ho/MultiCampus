@@ -1,0 +1,40 @@
+package com.test01;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+public class JDBCTest04 {
+
+	public static void main(String[] args) {
+		//0.
+		Connection con = null;
+		PreparedStatement pstm = null;
+		
+		int res = 0;
+		
+		int no = 0;
+		String name = null;
+		String nickName = null;
+		
+		String sql = " INSERT INTO MYTEST VALUES(?,?,?) ";
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

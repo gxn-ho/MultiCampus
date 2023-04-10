@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<form action="res.jsp" method="post">
+			이름 : <input type="text" name="tname"><br>
+			주소 : <input type="text" name="taddr"><br>
+			<input type="submit" value="전송">
+			<input type="reset" value="취소">
+		</form>
+	</div>
+
+
+<a href="res.jsp?tname=myname&taddr=myaddr">결과페이지로 이동</a>
+<a href="https://www.naver.com">네이버로 이동</a>	
+<pre>
+웹은 서버에 요청(HTTP Request)할 때
+두가지 방식이 있다.
+queryString을 포함한 GET방식과
+주소줄에 요청페이지만 있고, queryString이 보이지 않는 상태에서
+요청되는 POST방식.
+
+queryString : ?를 포함한 변수=벨류&변수=벨류 ... 를 말한다.
+
+</pre>	
+	
+</body>
+</html>

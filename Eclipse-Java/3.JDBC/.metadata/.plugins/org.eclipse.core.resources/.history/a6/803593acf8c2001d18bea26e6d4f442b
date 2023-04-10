@@ -1,0 +1,83 @@
+package com.score.view;
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.score.service.ScoreService;
+import com.score.service.ScoreServiceImpl;
+
+public class ScoreView {
+	static Scanner sc = new Scanner(System.in);
+	
+	public static int getMenu() {
+		int select = 0;
+		
+		System.out.println("================");
+		System.out.println("1.전체출력");
+		System.out.println("2.선택출력");
+		System.out.println("3.추가");
+		System.out.println("4.수정");
+		System.out.println("5.삭제");
+		System.out.println("6.종료");
+		System.out.println("메뉴 선택: ");
+		select = sc.nextInt();
+		return select;
+	}
+	
+	
+	public static void main(String[] args) {
+		ScoreService service = new ScoreServiceImpl();
+		int select = 0;
+		
+		String name = null;
+		int kor = 0;
+		int eng = 0;
+		int math = 0;
+		
+		int res = 0;
+		
+		while(select != 6) {
+			select = getMenu();
+			
+			switch(select) {
+			case 1:
+				//전체 출력
+				List<Score> my = service.getAll();
+				
+				
+				
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+				//종료
+				System.out.println("종료되었습니다.");
+				break;
+			}
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

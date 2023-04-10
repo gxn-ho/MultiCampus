@@ -1,0 +1,28 @@
+-- 실행: SQL 블럭 후 ALT + X
+DROP TABLE MYTEST;
+
+create table mytest(
+	mno int,
+	mname varchar(20),
+	nickname varchar(20)
+);
+select * from mytest;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

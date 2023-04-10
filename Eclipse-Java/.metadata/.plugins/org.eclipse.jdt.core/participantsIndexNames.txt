@@ -1,0 +1,3 @@
+INDEX VERSION 1.131
+/Users/junggunho/Desktop/Eclipse-Java/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/627939263.index
+/Java19_URI_Web/src
