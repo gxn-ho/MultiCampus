@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Window 객체</title>
+<style type="text/css">
+	#regist{
+		border: 1px solid black;
+		background: pink;
+		position: absolute;
+		top: 200px;
+		left: 500px;
+		display: none;
+		
+	}
+	
+</style>
+<script type="text/javascript">
+	function openWin() {
+		let url = "js14_window02.html";
+		let target = "";
+		let prop = "width=500px, height=500px";
+		window.open(url,target,prop);
+	}
+	function registForm(){
+		//감춰진 회원가입 양식을 보이게 하자.
+		document.getElementById("regist").style.display = "block";
+		document.body.style.background="gray";
+	
+		let btns = document.getElementsByName("btn");
+		for(let i in btns){ //for in문
+			//for(let i=0; i<btns.length; i++){}
+			btns[i].disabled = "disabled";
+		}
+	}
+	function closeForm(){
+		document.getElementById("regist").style.display = "none";
+		document.body.style.background="white";
+	
+		let btns = document.getElementsByName("btn");
+		for(let i in btns){ //for in문
+			//for(let i=0; i<btns.length; i++){}
+			btns[i].disabled = "";
+		}
+	}
+	function idCheck(){
+		window.open("js14_window03.html","","width=300px,height=300px");
+	}
+</script>
+</head>
+<body>
+<h1>window객체</h1>
+<pre>
+프로퍼티
+	-document
+	-history
+	-location
+	-navigator
+	-screen
+	-parent
+	...
+메소드
+	-alert()
+	-confirm()
+	-prompt()
+	-forward()
+	-back()
+	-setInterval()
+	-open()
+	-close()
+	</pre>
+<div>
+	<h1>팝업창 만들기</h1>
+	<button onclick="openWin();" name="btn">창열기</button>
+	<div id="tt"></div>
+	<hr>
+	<h1>회원가입하기(div팝업)</h1>
+	<button onclick="registForm();" name="btn">회원가입</button>
+	
+</div>
+	<!-- 회원가입 양식 -->
+	<div id="regist">
+		<form>
+			<table>
+				<caption>회원가입</caption>
+				<tr>
+					<td>I D</td>
+					<td>
+						<input type="text" name="id" onclick="alert('아이디체크 확인하세요')" readonly="readonly">
+						<input type="button" value="아이디체크" onclick="idCheck();">
+					</td>
+				</tr>
+				<tr>
+					<td>P W</td>
+					<td><input type="password" name="pwd"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="확인" onclick="closeForm();">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
