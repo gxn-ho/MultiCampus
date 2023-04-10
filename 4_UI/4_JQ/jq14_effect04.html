@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 200px;
+        height: 200px;
+      }
+      .onoffimg {
+        display: none;
+      }
+      .addsize {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $("#btn").click(function () {
+          $("img").toggleClass("onoffimg");
+        });
+        $("img").click(function () {
+          if ($(this).hasClass("addsize")) {
+            $(this).removeClass("addsize");
+          } else {
+            $(this).addClass("addsize").attr("title", "이미지 확대");
+          }
+          $(this).siblings().removeClass("addsize");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="btn">이미지 on/off</button>
+    <br />
+    <hr />
+    <br />
+    <div>
+      <img
+        src="./../1_html/sample/image/image1.png"
+        alt="img01"
+        title="이미지1번"
+      />
+      <img
+        src="./../1_html/sample/image/image2.png"
+        alt="img02"
+        title="이미지2번"
+      />
+      <img
+        src="./../1_html/sample/image/image3.png"
+        alt="img03"
+        title="이미지3번"
+      />
+    </div>
+  </body>
+</html>

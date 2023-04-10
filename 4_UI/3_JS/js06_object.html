@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object</title>
+    <script>
+      //객체 생성 1
+      function myClass603() {
+        let name = "603호";
+        this.name02 = "세종대점";
+        this.getName = function () {
+          return name;
+        };
+      }
+      //객체 생성 2
+      const myClass603_2 = {
+        name: "multi",
+        print: function () {
+          alert(myClass603_2.name + ": print");
+          return myClass603_2.name;
+        },
+      };
+
+      myClass603.prototype.printName = function () {
+        let abc = "메롱";
+        alert(this.name02 + "," + this.getName() + ": prototype " + abc);
+      };
+
+      function objTest() {
+        //function 기반 객체
+        let cls = new myClass603();
+        alert(cls.name02);
+        window.alert(cls.getName());
+        cls.printName();
+
+        window.alert(myClass603_2.name);
+        myClass603_2.print();
+      }
+    </script>
+  </head>
+  <body>
+    <pre>
+        객체: 관련된 데이터와 함수의 집합이다.
+        -함수: 기능 정의
+        -속성: 객체 내부 데이터
+        -this.: 객체 내부의 메소드나 속성을 정의할 때 사용
+        -프로토타입: 객체 확장
+    </pre>
+    <button onclick="objTest();">객체</button>
+  </body>
+</html>

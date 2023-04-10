@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>location</title>
+    <script>
+      function locTest() {
+        alert("locTest 실행");
+
+        // location.href = "https://www.google.com";
+        //          .assign(url) --> href와 같다
+        // 전단계 이력 X
+        //location.replace("https://www.google.com");
+
+        // 새로고침
+        location.reload();
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 문서의 주소와 관련된 객체 -->
+    <a href="https://www.google.com">구글로 이동</a>
+    <button onclick="locTest();">이동</button>
+  </body>
+</html>

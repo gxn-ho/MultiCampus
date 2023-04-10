@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 150px;
+        height: 150px;
+        float: left;
+      }
+      #menubox {
+        position: relative;
+      }
+      #menu {
+        overflow: auto;
+      }
+      .sel {
+        width: 140px;
+        height: 140px;
+        border: 5px dotted yellowgreen;
+        position: absolute;
+        left: 150px;
+      }
+      button {
+        width: 150px;
+        height: 50px;
+        margin-left: 150px;
+      }
+    </style>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        //특정 시간마다 특정 함수 or 코드를 실행
+        window.setInterval(function () {
+          let div = $("#menu");
+          $(".active").first().appendTo(div);
+        }, 500);
+        $("button").click(function () {
+          $("img").toggleClass("active");
+          if ($("button").text() == "start") {
+            $("button").text("stop");
+          } else {
+            $("button").text("start");
+            alert("오늘의 미니언은 " + $("img:eq(1)").attr("alt"));
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>이미지 선택</h1>
+    <div id="menubox">
+      <div class="sel"></div>
+      <div id="menu">
+        <img src="./../1_html/sample/image/image1.png" alt="스튜어트" />
+        <img src="./../1_html/sample/image/image2.png" alt="톰" />
+        <img src="./../1_html/sample/image/image3.png" alt="밥" />
+      </div>
+    </div>
+    <button>start</button>
+  </body>
+</html>

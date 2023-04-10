@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form 입력 양식</title>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+      function test01() {
+        let inputVal = $("input:text").val();
+        $("#res").html(inputVal);
+      }
+      function test02() {
+        let inputVal = $("input:radio").val();
+        $("#res").html(inputVal);
+      }
+      function test03() {
+        let inputVal = $("input:checkbox").val();
+        $("#res").html(inputVal);
+      }
+      $(function () {
+        let selEle = document.getElementsByTagName("select")[0];
+
+        selEle.onchange = function () {};
+      });
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" />
+      <input type="button" value="선택" onclick="test01();" />
+      <input type="radio" value="23/2/20~" onclick="test02();" />23년 2월 20일~
+      <input
+        type="checkbox"
+        value="웹 서비스 개발자 취업캠프"
+        onclick="test03();"
+      />
+      취업캠프
+      <div id="res"></div>
+      <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </form>
+  </body>
+</html>

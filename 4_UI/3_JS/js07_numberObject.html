@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      const numberObj = () => {
+        let out = document.querySelectorAll("div")[0]; // css 선택자를 이용
+
+        //1. 작성 방법
+        let num = new Number(8);
+        let num02 = 7;
+
+        // NaN (Not a Number)
+        out.innerHTML = "NaN: " + parseInt("A") + "<br>";
+        // Infinity
+        out.innerHTML += Infinity / 100 + "<br>";
+      };
+    </script>
+  </head>
+  <body>
+    <pre>
+        1. Number 객체
+        -- 정수와 실수를 다루는 객체
+        <button onclick="numberObj();">number 객체</button>
+        -속성
+            NaN(숫자가 아닌 값)
+            infinity(범위를 벗어난 숫자)
+    </pre>
+
+    <div></div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        /* 1. width: 200px; */
+        /* 2. idth: 100%;
+            max-width: 800px; */
+        max-width: 100%;
+      }
+      div {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./../1_html/sample/image/image3.png" alt="" />
+    <div>
+      <img src="./../1_html/sample/image/image3.png" alt="" />
+      <!-- 
+        현재 div가 body의 50%. 그 아래에 있는 img태그의 최대 넓이는 부모의 100%.
+        그러니 화면의 절반보다 커질 수 없다. -->
+    </div>
+  </body>
+</html>

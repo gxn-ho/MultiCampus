@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>transform</title>
+    <style>
+      .transform {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        color: whitesmoke;
+        font-size: 30pt;
+        word-wrap: break-word;
+      }
+      #tlate {
+        transform: translate(10px, 10px);
+      }
+      #trotate {
+        transform: rotate(45deg);
+      }
+      #tscale {
+        transform: scale(0.6, 0.6);
+      }
+      #tskew {
+        transform: skew(37deg, 15deg);
+      }
+      /* transition: 정해진 시간동안 태그(요소)의 속성값을 부드럽게 변화 */
+      #tran {
+        transition: width 0.5s, background 1.5s linear, transform 1.5s;
+      }
+
+      #tran:hover {
+        width: 800px;
+        background-color: blue;
+        transform: translate(300px, 0px);
+      }
+      li {
+        width: 400px;
+        background-color: aqua;
+        color: blueviolet;
+        margin-bottom: 5px;
+        font-size: 30pt;
+        font-weight: bold;
+        list-style-type: none;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: width 1s linear, color 1s linear, letter-spacing 1s,
+          font-family 0.5s;
+        cursor: help;
+      }
+      li:hover {
+        width: 800px;
+        font-family: "Times New Roman", Times, serif;
+        color: darkslateblue;
+        letter-spacing: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>tranform - translate</h2>
+    <div id="tlate" class="transform">translate(x,y): 위치 이동</div>
+    >
+
+    <h2>transform - rotate</h2>
+    <div id="trotate" class="transform">rotate(deg): 회전</div>
+    <h2>transform - scale</h2>
+    <div id="tscale" class="transform">scale(x,y): 크기</div>
+    <h2>transfrom - skew</h2>
+    <div id="tskew" class="transform">skew(deg,deg): 변형</div>
+    <h2>transition 속성 전환</h2>
+    <div id="tran" class="transform">transition</div>
+    <div>
+      <h2>Moving Menu</h2>
+      <ul>
+        <li>Java</li>
+        <li>Mysql</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+  </body>
+</html>

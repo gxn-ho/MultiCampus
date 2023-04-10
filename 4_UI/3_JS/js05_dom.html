@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom</title>
+    <script>
+      function searchId() {
+        // document.getElementById()
+        // id가 test인 엘리먼트 탐색
+        const doc = document.getElementById("test");
+        console.log(doc);
+        doc.innerHTML = "id로 탐색합니다.";
+        doc.style.color = "aqua";
+      }
+      function searchName() {
+        // name이 test02인 엘리먼트들을 탐색
+        let doc = document.getElementsByName("test02")[1];
+        console.log(doc);
+
+        doc.value = "name 속성으로 엘리먼트 탐색";
+      }
+      function searchTagName() {
+        // document.getElementsByTagName
+        // tagName이 p인 엘리먼트들을 탐색
+        var doc = document.getElementsByTagName("p");
+        console.log(doc[3]);
+        doc[3].style.color = "blue";
+        doc[3].innerHTML = "tagName으로 탐색";
+      }
+    </script>
+  </head>
+  <body>
+    <p>DOM(Document Object Model) 탐색 메소드</p>
+
+    <p id="test" onclick="searchId();">
+      1. 엘리먼트의 id로 탐색: document의 엘리먼트 중 하나를 선택 - 반환: 값
+      하나
+    </p>
+    <p onclick="searchName();">
+      2. 엘리먼트의 name으로 탐색: 엘리먼트 여러 개를 선택 - 반환: 배열<br />
+      <input type="text" name="test02" value="" /><br />
+      <input type="text" name="test02" value="" /><br />
+      <input type="text" name="test02" value="" /><br />
+    </p>
+    <p onclick="searchTagName();">
+      3. 엘리먼트의 태그 이름으로 탐색: 엘리먼트 여러 개를 선택 - 반환: 배열
+    </p>
+  </body>
+</html>

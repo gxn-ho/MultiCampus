@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("p:eq(0)").click(function () {
+          //해당 태그 삭제
+          $(this).remove();
+        });
+        $("p:eq(1)").click(function () {
+          //태그 안에 내용 삭제
+          //$(this).empty();
+          $(this).parent().empty();
+        });
+        $("p:eq(2)").click(function () {
+          ele = $(this).detach();
+          $("h1").append(ele);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>엘리먼트 제거하기</h1>
+
+    <div>
+      <p>remove()</p>
+      <p>empty()</p>
+      <p>detach()</p>
+    </div>
+  </body>
+</html>

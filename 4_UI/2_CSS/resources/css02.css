@@ -1,0 +1,104 @@
+/*타입 선택자*/
+pre {
+  text-align: center;
+}
+h1 {
+  text-align: right;
+  color: blue;
+}
+
+/* id 선택자 */
+#sid01 {
+  color: orange;
+}
+#sid02 {
+  color: green;
+}
+#sid03 {
+  color: brown;
+}
+
+/* class 선택자*/
+.scls {
+  color: pink;
+}
+#scls01 {
+  color: black;
+}
+/*class 선택자보다 id의 우선순위가 더 높다*/
+
+/* 전체 선택자
+* {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+*/
+
+/* 자식 선택자 */
+#at > p {
+  color: blue;
+}
+/* text가 자식1인 p태그를 선택(자식 선택자로)해서 글자색을 red로 변경*/
+#at > div > p {
+  color: red;
+}
+
+/* 인정 선택자 */
+h3 + b {
+  background-color: black;
+  color: white;
+}
+span + b {
+  background-color: yellow;
+  color: violet;
+}
+
+/* 속성 선택자 */
+p[title] {
+  color: skyblue;
+}
+p[title="b"] {
+  background-color: beige;
+}
+
+/* 가상 클래스 선택자 */
+/* 
+    link: 방문 전 링크 선택
+    visited: 방문 후 링크 선택
+    hover: 마우스가 태그 위에 올라가 있는 동안 선택
+    active: 클릭할 때,  focus: 포커스가 머물러 있는 동안...
+ */
+a:link {
+  color: pink;
+  font-size: 20pt;
+}
+a:visited {
+  color: gray;
+}
+a:hover {
+  background-color: purple;
+}
+input:checked {
+  width: 200px;
+  height: 200px;
+}
+
+/* 종속 선택자 */
+li.acls01 {
+  background-color: green;
+}
+li.acls02#sidli {
+  color: steelblue;
+}
+
+/* 하위 선택자 */
+div span {
+  background-color: yellow;
+}
+/* 그룹 선택자 */
+p,
+pre,
+strong {
+  color: lime;
+}

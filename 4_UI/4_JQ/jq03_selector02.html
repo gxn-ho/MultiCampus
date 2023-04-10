@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <style type="text/css">
+      img {
+        width: 100px;
+      }
+    </style>
+    <script type="text/javascript">
+      function resizeImg() {
+        $("img").css("width", "200px");
+      }
+      function idSelector() {
+        $("#selId").css("display", "none");
+      }
+      function classSelector() {
+        $(".selClass").css("opacity", "0.5");
+      }
+      function propSelector() {
+        $("img[title *=img02]").slideUp(2000);
+      }
+      function changeImg() {
+        $("td>img").attr("src", "/1_html/sample/image/image1.png");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>1. 이미지들의 크기를 모두 width=200px로 설정하자.</h1>
+    <button onclick="resizeImg();">클릭!</button>
+
+    <h1>2. 이미지들 중 id가 'selId'인 태그를 찾아, 숨기자.</h1>
+    <button onclick="idSelector();">클릭!</button>
+
+    <h1>
+      3. 이미지들 중 class가 'selClass'인 태그를 찾아, 투명도를 50% 적용하자.
+    </h1>
+    <button onclick="classSelector();">클릭!</button>
+
+    <h1>
+      4. 이미지들 중 속성값으로 탐색하여 slideUp 기능을 적용하자. (title 속성값
+      중, '02'를 포함하는 img 태그를 찾아서 적용) (slideUp의 속도는 2000ms로
+      적용)
+    </h1>
+    <button onclick="propSelector();">클릭!</button>
+
+    <h1>5. 이미지 바꾸기(td의 자식 요소인 img만 선택해서 바꾸자)</h1>
+    <button onclick="changeImg();">클릭!</button>
+    <!-- .attr() -->
+
+    <table>
+      <tr>
+        <td>
+          <img
+            id="selId"
+            title="img01"
+            src="/1_html/sample/image/image3.png"
+            alt=""
+          />
+        </td>
+        <td>
+          <img title="img02" src="/1_html/sample/image/image3.png" alt="" />
+        </td>
+        <td>
+          <img
+            class="selClass"
+            title="img03"
+            src="/1_html/sample/image/image3.png"
+            alt=""
+          />
+        </td>
+        <td>
+          <img
+            class="selClass"
+            title="img04"
+            src="/1_html/sample/image/image3.png"
+            alt=""
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img
+            id="selId"
+            title="img05"
+            src="/1_html/sample/image/image3.png"
+            alt=""
+          />
+        </td>
+        <td>
+          <span
+            ><img title="img06" src="/1_html/sample/image/image3.png" alt=""
+          /></span>
+        </td>
+        <td>
+          <span
+            ><img
+              class="selClass"
+              title="img07"
+              src="/1_html/sample/image/image3.png"
+              alt=""
+          /></span>
+        </td>
+        <td>
+          <img
+            class="selClass"
+            title="img08"
+            src="/1_html/sample/image/image3.png"
+            alt=""
+          />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

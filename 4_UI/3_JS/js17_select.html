@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>select</title>
+    <script type="text/javascript">
+      function show01() {
+        let food = document.getElementsByName("food")[0];
+
+        // selectedIndex = 선택되어 있는 option 태그의 index를 반환
+        let idx = food.selectedIndex;
+        // console.log(idx);
+        // options: select가 가지고 있는 option 태그들
+        let foodVal = food.options[idx].value;
+
+        alert(foodVal + "먹고싶다!!");
+      }
+      function show02() {
+        let food = document.getElementsByName("food")[1];
+        let str = "";
+        for (let i = 0; i < food.options.length; i++) {
+          // selected: 옵션 태그의 선택 여부 (true, false)
+          if (food.options[i].selected) {
+            str += food.options[i].value + " ";
+          }
+        }
+        alert(str + "먹고싶다!!!!!!!!!!");
+      }
+    </script>
+  </head>
+  <body>
+    <h1>음식 선택하기</h1>
+    <form action="">
+      <select name="food" onchange="show01();">
+        <option>---선택---</option>
+        <option value="삼겹살">삼겹살</option>
+        <option value="메밀국수">메밀국수</option>
+        <option value="돈코츠라멘">돈코츠라멘</option>
+        <option value="마라탕">마라탕</option>
+        <option value="물냉면">물냉면</option>
+      </select>
+      <br /><br /><br />
+      <select name="food" multiple="multiple" size="5">
+        <option value="삼겹살">삼겹살</option>
+        <option value="메밀국수">메밀국수</option>
+        <option value="돈코츠라멘">돈코츠라멘</option>
+        <option value="마라탕">마라탕</option>
+        <option value="물냉면">물냉면</option>
+      </select>
+      <input type="button" value="선택" onclick="show02();" />
+    </form>
+  </body>
+</html>

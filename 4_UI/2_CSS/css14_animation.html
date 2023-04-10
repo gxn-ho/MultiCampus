@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+    <style type="text/css">
+      div {
+        width: 100px;
+        height: 100px;
+        font-size: 30pt;
+        background-color: red;
+        word-wrap: break-word;
+        animation: mybox 2s;
+      }
+
+      /* keyframe정의 -> @keyframes */
+      @keyframes mybox {
+        0% {
+          width: 150px;
+          height: 150px;
+          background-color: yellow;
+          transform: translate(10px, 10px);
+        }
+        25% {
+          width: 500px;
+          height: 500px;
+          background-color: blue;
+          transform: translate(150px, 150px);
+        }
+        50% {
+          width: 250px;
+          height: 250px;
+          background-color: orange;
+          transform: translate(100px, 100px);
+        }
+        75% {
+          width: 10px;
+          height: 10px;
+          background-color: aqua;
+          transform: translate(200px, 200px);
+        }
+        100% {
+          width: 200px;
+          height: 200px;
+          background-color: red;
+          transform: translate(10px, 10px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Animation 효과</h1>
+    <div>Animation</div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>selector 표현식</title>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+    ></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#view").css({
+          border: "1px solid blue",
+          width: "400px",
+          height: "200px",
+        });
+        // ':' 필터, div 태그들 중에 해당하는 index의 엘리먼트를 선택.
+        $("div:eq(0)").css({ border: "1px solid red", width: "400px" });
+      });
+      //tag로 선택
+      function a1() {
+        $("span").css("color", "red");
+        $("#view").text('$("span").css("color", "red");');
+      }
+      //id로 선택
+      function a2() {
+        $("#t1").css("color", "blue");
+        $("#view").text('$("#t1").css("color","blue");');
+      }
+      //class로 선택
+      function a3() {
+        jQuery(".t2").css("color", "hotpink");
+        jQuery("#view").text('jQuery(".t2").css("color","hotpink");');
+      }
+      //li span (하위선택자)
+      function a4() {
+        $("li span").css("color", "aqua");
+        $("#view").text('$("li span").css("color", "aqua");');
+      }
+      function a5() {
+        $("li>span").css("color", "violet");
+        $("#view").text('$("li>span").css("color", "violet");');
+      }
+      function a6() {
+        $("li:nth-child(even)").css("background-color", "yellow");
+        $("#view").text(
+          '$("li:nth-child(3)").css("background-color","yellow");'
+        );
+      }
+      function a7() {
+        $("li:first-child").css("background-color", "gray");
+        $("#view").text('$("li:first-child").css("background-color","gray");');
+      }
+      function a8() {
+        $("li:last-child").css("background-color", "green");
+        $("#view").text('$("li:last-child").css("background-color","green");');
+      }
+      //last, first, even, odd, eq(), gt(), lt()
+    </script>
+  </head>
+  <body>
+    <h1>selector 표현식</h1>
+    <div>
+      <ul>
+        <li><span>tag로 선택하기</span></li>
+        <li id="t1">id로 선택하기</li>
+        <li class="t2">class로 선택하기</li>
+        <li><span>parent child로 선택하기</span></li>
+        <li>:nth-child(n/odd/even)로 선택하기</li>
+        <li>
+          <b><span>parent &gt; child</span></b
+          >로 선택하기
+        </li>
+        <li>:nth-child(n/odd/even)로 선택하기</li>
+        <li>:first-child로 선택하기</li>
+        <li>:last-child로 선택하기</li>
+      </ul>
+    </div>
+    <hr />
+    <div>
+      <button onclick="a1();">태그선택(span)</button>
+      <button onclick="a2();">id 선택(t1)</button>
+      <button onclick="a3();">class선택(t2)</button>
+      <button onclick="a4();">p c 선택</button>
+      <button onclick="a5();">p &gt; c 선택</button>
+      <button onclick="a6();">nth-child 선택</button>
+      <button onclick="a7();">first-child 선택</button>
+      <button onclick="a8();">last-child 선택</button>
+    </div>
+    <h2>코드 내용</h2>
+    <div id="view"></div>
+  </body>
+</html>

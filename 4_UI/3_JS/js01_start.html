@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 2. embedded -->
+    <script type="text/javascript">
+      function embeddedTest() {
+        let doc = document.getElementsByTagName("li")[4];
+        doc.style.color = "red";
+        doc.innerHTML = "<strong>글자가 바뀝니다.</strong>";
+      }
+    </script>
+
+    <!-- 3. 외부 -->
+    <script type="text/javascript" src="./js/test.js"></script>
+  </head>
+  <body>
+    <dl>
+      <dt>스크립트 언어란?</dt>
+      <dd>
+        기본 프로그램의 동작을 사용자의 요구에 맞게 수행되도록 해주는 용도로
+        사용. <br />
+        빠르게 학습 가능, 짧은 소스코드로 상호작용하도록 고안됨.
+      </dd>
+    </dl>
+    <dl>
+      <dt>자바스크립트</dt>
+      <dd>
+        웹 브라우저에서 사용하는 인터프리터 방식의 객체지향 프로그래밍 언어다.
+        <br />
+        표준을 따르는 웹 기술.
+      </dd>
+    </dl>
+    <dl>
+      <dt>자바스크립트 사용법</dt>
+      <dd>
+        <ol>
+          <li>태그에 직접 간단한 코드를 작성하여 실행</li>
+          <li>script 태그 영역 안에 작성하여 실행</li>
+          <li>외부에 js파일을 작성해서 가져다 사용하는 방법</li>
+        </ol>
+      </dd>
+    </dl>
+    <hr />
+    <h1>자바스크립트의 작성 방식 3가지</h1>
+    <ol>
+      <!-- 1. inline -->
+      <li onclick="window.alert('inline');">inline 방식</li>
+      <li onclick="embeddedTest()">내부 작성 방식(embedded)</li>
+      <li onclick="test();">외부 작성 방식(*.js)</li>
+    </ol>
+  </body>
+</html>

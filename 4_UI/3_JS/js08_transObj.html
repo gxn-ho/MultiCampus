@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      function numTest(num) {
+        //alert(num + ":" + typeof num);
+        //alert(num + 5);
+        let val = Number(num) + 5;
+        alert(val + ":" + typeof val);
+      }
+      function intTest(num) {
+        let val = parseInt(num) + 15;
+        alert(val + ":" + typeof val);
+      }
+      function floatTest(num) {
+        let val = parseFloat(num) + 15;
+        alert(val + ":" + typeof val);
+      }
+    </script>
+  </head>
+  <body>
+    <h2>1. 숫자형 형변환 number() 함수</h2>
+    <p>문자형의 정수/실수를 숫자형으로 변환시켜 준다.</p>
+    <input type="text" id="num" />
+    <button onclick="numTest(num.value)">확인</button>
+
+    <h2>2. 정수형 형변환 parseInt() 함수</h2>
+    <p>문자형의 정수를 숫자로 변환시켜 준다.</p>
+    <input type="text" id="int" />
+    <button onclick="intTest(int.value)">확인</button>
+
+    <h3>3. 실수형 형변환 parseFloat() 함수</h3>
+    <p>문자형의 실수를 숫자로 변환시켜 준다.</p>
+    <input type="text" id="float" />
+    <button onclick="floatTest(float.value)">확인</button>
+
+    <h3>4. 문자열과 숫자의 + 연산</h3>
+    <button onclick="stringTest()">확인</button>
+    <div id="res"></div>
+    <script>
+      function stringTest() {
+        let doc = document.getElementById("res");
+
+        let val = 7 + 7;
+        doc.innerHTML += val + "<br>"; //14
+
+        val = 7 + "7";
+        doc.innerHTML += val + "<br>"; //'77'
+
+        val = 7 + 7 + "7";
+        doc.innerHTML += val + "<br>"; //'147'
+      }
+    </script>
+  </body>
+</html>

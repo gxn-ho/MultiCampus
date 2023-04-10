@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 200px;
+      }
+    </style>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+      // function highlight() {
+      //id가 list01인 엘리먼트의 자식인 li 찾아서, 그 중 첫번째 li엘리먼트에
+      //배경색을 pink로 바꾸자!!
+      // document.getElementById("list01").children[0].style.backgroundColor = "pink";
+      // jQuery 코드
+      //jQuery("#list01>li").eq(0).css("background-color","pink")
+      //$("#list01>li").eq(0).css("background-color","pink");
+
+      //li태그 전부 배경색 변경
+      //JS
+      // let lis = document.getElementsByTagName("li");
+      // for (let i = 0; i < lis.length; i++) {
+      //   lis[i].style.backgroundColor = "pink";
+      // }
+
+      //jq
+      // $("#lsit01>li").css("background-color", "pink");
+
+      //페이지 내의 코드를 모두 읽어 들인 후에 실행해라!
+      //1. $(function () { });
+      //2. $(document).ready(function(){ });
+      //3. window.onload = function(){ }
+      $(function () {
+        $("img").click(function () {
+          $(this).hide();
+        });
+      });
+
+      function showImg() {
+        $("img").show();
+      }
+      function resizeImg1() {
+        $("img").css("width", "300px");
+        $("img").css("height", "300px");
+        $("img").css("opacity", "1");
+      }
+      function resizeImg2() {
+        //$("img").css("width", "100px").css("height", "100px");
+        $("img").css({ width: "100px", height: "100px" }).css("opacity", "0.5");
+      }
+      function addImg() {
+        $("img")
+          .last()
+          .after("<img src='./../1_html/sample/image/image3.png'>");
+      }
+      function toggleImg() {
+        //보이지 않는 상태-> 보이게, 보이는 상태-> 보이지 않게
+        $("img").toggle();
+      }
+    </script>
+  </head>
+  <body>
+    <!-- 
+        제이쿼리: 자바스크립트 라이브러리
+     -->
+    <h1>jQuery 시작</h1>
+    <ul id="list01">
+      <li>1. 셀렉터 표현식</li>
+      <li>2. DOM탐색</li>
+      <li>3. 이벤트</li>
+      <li>4. 이펙트</li>
+      <li>5. Ajax</li>
+    </ul>
+    <button onclick="highlight();">리스트 강조하기</button>
+    <hr />
+    <button onclick="showImg();">이미지 보이기</button>
+    <button onclick="resizeImg1();">화면 확대하기</button>
+    <button onclick="resizeImg2();">화면 축소하기</button>
+    <button onclick="addImg();">이미지 추가하기</button>
+    <button onclick="toggleImg();">이미지 숨기기/보이기</button>
+    <br /><br />
+    <div>
+      <img src="./../1_html/sample/image/image3.png" />
+    </div>
+  </body>
+</html>

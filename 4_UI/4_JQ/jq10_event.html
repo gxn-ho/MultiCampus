@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 400px;
+        height: 200px;
+        border: 2px solid orange;
+        padding: 20px;
+        overflow: auto;
+      }
+      div p:first-child {
+        float: left;
+        border: 1px solid blue;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        line-height: 150px;
+      }
+      div p:last-child {
+        float: right;
+        border: 1px solid blue;
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        line-height: 150px;
+      }
+    </style>
+    <script type="text/javascript" src="./js/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript">
+      /*
+                이벤트 전파: 각 요소가 서로 포함 관계(중첩)인 경우 요소 중 하나에
+                            이벤트가 발생하면 중첩된 요소들도 이벤트 전파된다.
+
+                이벤트 전파 막기
+                    - stopPropagation(): 이벤트 요소의 전파 막기
+                    - preventDefault(): 기본 동작 막기
+                    -return false: 위의 두 기능 모두 적용
+
+      */
+      $(function () {
+        $("a:eq(0)").click(function (e) {
+          alert("a클릭!");
+          //e.stopPropagation();
+          //preventDefault();
+          return false;
+        });
+        $("p").click(function () {
+          alert("p클릭!");
+        });
+        $("div").click(function () {
+          alert("div클릭!");
+        });
+        // $("a:eq(1)").bind("mouseover mouseout", function () {
+        //   if (e.type == "mouseover") {
+        //     $(this).css("background-color", "pink");
+        //   }
+        //   if (e.type == "mouseout") {
+        //     $(this).css("background-color", "skyblue");
+        //   }
+        // });
+        $("a:eq(1)").bind({
+          mouseover: function () {
+            $(this).css("background-color", "pink");
+          },
+          mouseout: function () {
+            $(this).css("background-color", "skyblue");
+          },
+        });
+        $("span")
+          .first()
+          .click(function () {
+            alert("span 클릭");
+            $("a:eq(1)").unbind(); //이벤트 연결 해제
+          });
+        $("button").click(function () {
+          $("body").append("<span> 새로 추가된 span태그 </span><br>");
+        });
+        $("body").on("click", ">span", function () {
+          alert("새로 추가된 요소도 이벤트 적용!");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <span>이벤트 해제</span>
+    <div>
+      <p>
+        <a href="https://www.naver.com">클릭!</a>
+      </p>
+      <p>클릭!</p>
+    </div>
+    <div>
+      <p>
+        <a href="https://www.google.com">클릭!</a>
+      </p>
+      <p>클릭!</p>
+    </div>
+    <button>요소 추가</button>
+  </body>
+</html>
