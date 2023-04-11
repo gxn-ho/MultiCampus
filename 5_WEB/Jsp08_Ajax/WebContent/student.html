@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+
+	/*
+		encodeURI(): 인터넷 주소에서 사용하는 :,;,/,=,?,& 등을 제외하고 인코딩한다.
+		encodeURIComponent(): 모든 문자를 인코딩한다.
+		
+		decodeURI(): encodeURI()로 인코딩한 문자열을 디코딩
+		decodeURIComponent(): encodeURIComponent()로 인코딩한 문자열 디코
+	*/
+
+
+
+	function getParamValues(){
+		let name = "name="+encodeURIComponent($("#name").val());
+		let kor = "kor="+$("#kor").val();
+		let eng = "eng="+$("#eng").val();
+		let math = "math="+$("#math").val();
+		
+		
+		//httpRequest = new XMLHttpRequest();
+		//httpRequest.onreadystatechange=function(){}
+		//httpRequest.open("GET","CalScore",true);
+		
+		
+		return "?"+name+"&"+kor+"&"+eng+"&"+math;
+		
+	}
+	
+	
+	
+	$(function(){
+		$("#process").click(function(){
+			$.ajax({
+				url:"CalScore"+getParamValues(),
+				dataType:"json",
+				success:function(msg){
+					console.log(msg);
+					$("#result").html(msg.name+"의 총점은 "+msg.sum+"점이고, 평균은 "+msg.avg+"점입니다.");
+				},
+				error:function(){
+					alert("통신 실패");
+				}
+			});
+		});
+		
+		
+	});
+
+
+
+</script>
+</head>
+<body>
+<h1>성적 처리 프로그램</h1>
+이름 : <input type="text" id="name"><br>
+국어 : <input type="text" id="kor"><br>
+영어 : <input type="text" id="eng"><br>
+수학 : <input type="text" id="math"><br>
+<br>
+<input type="button" id="process" value="성적 처리"><br><br>
+<div id="result"></div>
+
+
+
+</body>
+</html>

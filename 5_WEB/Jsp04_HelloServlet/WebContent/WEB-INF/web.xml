@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>Jsp04_HelloServlet</display-name>
+  <!-- 프로젝트 이름으로 기본 설정, 우리가 만든 웹 어플의 이름, 명칠을 지정 -->
+  
+  <!-- 웹 어플리케이션 실행 시 가장 먼저 보여줄 페이지를 정의, 시작 -->
+  <welcome-file-list>
+    <welcome-file>home.html</welcome-file>
+  </welcome-file-list>
+  
+  	<!-- 어플리케이션 전체의 전역 파라미터 설정 -->
+  	<context-param>
+  		<param-name>url</param-name>
+  		<param-value>jdbc:mysql://localhost:3306/multi</param-value>
+  	</context-param>
+  	
+  	
+  	<servlet>
+  		<servlet-name>HelloServlet</servlet-name>
+  		<servlet-class>com.hello.controller.HelloController</servlet-class>
+  		
+  		<!-- init()메서드 실행될 때(서블릿 객체가 초기화) 해당 값을 사용할 수 있다. -->
+  		<init-param>
+  			<param-name>driver</param-name>
+  			<param-value>com.mysql.jdbc.driver</param-value>
+  		</init-param>
+  		
+  		<!-- server start시 서블릿 객체 생성! -->
+  		<load-on-startup>5</load-on-startup>
+  		<!-- 서블릿이 여러 개일 때 실행 순서 정의.(숫자가 낮은 것부터 초기화) -->
+  		
+  	</servlet>
+  	
+  	<servlet-mapping>
+  		<servlet-name>HelloServlet</servlet-name>
+  		<url-pattern>/HelloServlet.do</url-pattern>
+  	</servlet-mapping>
+  
+  
+</web-app>
