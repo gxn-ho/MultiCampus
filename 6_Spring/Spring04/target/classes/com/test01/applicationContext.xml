@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="myClass" class="com.test01.MyClass" />
+	
+	<bean id="date" class="java.util.Date">
+		<property name="year" value="123" />
+		<property name="month" value="1" />
+		<property name="date" value="1" />
+	</bean>
+	
+	<bean id="beanTest" class="com.test01.BeanTest">
+		<!--  1. public BeanTest(Date date) -->
+		<constructor-arg ref="date"></constructor-arg>
+		<!-- 2. public void setMyClass(MyClass myClass) -->
+		<property name="myClass" ref="myClass"></property>
+		<!-- 3. public void setDate(Date date) -->
+		<property name="date" ref="date"></property>
+		<!-- 4. public void setNumber(int num) -->
+		<property name="number">
+			<value type="int">15</value>
+		</property>
+		<!-- 5. public void setArray(String[] arr) -->
+		<property name="array">
+			<array>
+				<value>홍길동</value>
+				<value>이순신</value>
+				<value>유관순</value>
+			</array>
+		</property>
+		<!-- 6. public void setList(List<String> list) -->
+		<property name="list">
+			<list>
+				<value>아침</value>
+				<value>점심</value>
+				<value>저녁</value>
+				<value>야식</value>
+			</list>
+		</property>
+		<!-- 7. public void setSet(Set<String> set) -->
+		<property name="set">
+			<set>
+				<value>1</value>
+				<value>2</value>
+				<value>3</value>
+				<value>4</value>
+			</set>
+		</property>
+		<!-- 8. public void setMap(Map<String,String> map) -->
+		<property name="map">
+			<map>
+				<entry>
+					<key><value>1</value></key>
+					<value>봄</value>
+				</entry>
+				<entry key="2" value="여름">
+				</entry>
+			</map>
+		</property>
+		<!-- 9. public void setScore(List<Score> list) -->
+		<property name="score">
+			<list>
+				<bean class="com.test01.Score">
+					<property name="name" value="이창진"></property>
+					<property name="score" value="99"></property>
+				</bean>
+				<ref bean="sc"></ref>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="sc" class="com.test01.Score">
+		<constructor-arg value="홍길동"></constructor-arg>
+		<constructor-arg value="50"></constructor-arg>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</beans>
