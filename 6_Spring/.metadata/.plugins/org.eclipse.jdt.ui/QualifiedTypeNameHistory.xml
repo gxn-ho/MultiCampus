@@ -29,4 +29,11 @@
     <fullyQualifiedTypeName name="com.mvc.upgrade.model.biz.BoardBiz"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.mvc.upgrade.model.dto.BoardDto"/>
+    <fullyQualifiedTypeName name="javax.servlet.Filter"/>
+    <fullyQualifiedTypeName name="com.mvc.upgrade.common.filter.LogFilter"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.log.LogFactory"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
 </qualifiedTypeNameHistroy>

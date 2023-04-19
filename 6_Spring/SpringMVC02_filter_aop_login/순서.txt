@@ -1,0 +1,32 @@
+SpringMVC02
+1. pom.xml: mysql, mybatis, mybatis-spring, commons-dbcp, spring-orm + java/spring 버전 변경
+2. web.xml: applicationContext.xml, mapping, encoding filter
+3. /WEB-INF/spring/sqls/sql.txt
+4. dto, dao, biz, controller
+5. src/main/resources/mybatis/board-mapper.xml
+6. src/main/resources/mybatis/db.properties
+7. /WEB-INF/spring/sqls/config.xml
+8. applicationContext.xml, servlet-context.xml
+
+_filter
+09. com/mvc/upgrade/common/filter/LogFilter.java (impl javax.servlet.Filter)
+10. web.xml: filter
+
+_aop
+11. pom.xml: aspectjweaver, aspectjrt(이미 있다)
+12. com/mvc/upgrade/common/aop/LogAop
+13. WEB-INF/spring/appServlet/aop-context.xml
+14. web.xml: aop-context 추가
+
+_login
+15. pom.xml: 
+
+
+3조
+팀원: 누구, 누구, 누구
+주제: ~~~
+기능: ~~~
+커뮤니티: CRUD
+로그인: ~~, aa.api
+검색: ~~, 공공데이터포털 ~데이터
+
