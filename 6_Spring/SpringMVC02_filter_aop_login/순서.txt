@@ -19,14 +19,10 @@ _aop
 14. web.xml: aop-context 추가
 
 _login
-15. pom.xml: 
+15. pom.xml: jackson-databind
+16. WEB-INF/spring/sql.txt
+17. dto, dao, biz, controller
+18. src/main/resources/mybatis/member-mapper.xml
+19. WEB-INF/spring/sqls/config.xml
 
-
-3조
-팀원: 누구, 누구, 누구
-주제: ~~~
-기능: ~~~
-커뮤니티: CRUD
-로그인: ~~, aa.api
-검색: ~~, 공공데이터포털 ~데이터
 
