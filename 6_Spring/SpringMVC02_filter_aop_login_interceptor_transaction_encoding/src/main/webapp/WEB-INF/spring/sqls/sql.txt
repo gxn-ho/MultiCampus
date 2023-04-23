@@ -1,0 +1,10 @@
+drop table MYMEMBER;
+
+CREATE table MYMEMBER(
+	MEMBERNO INT auto_increment primary key,
+	MEMBERID VARCHAR(500) not null,
+	MEMBERPW VARCHAR(1000) not null,
+	MEMBERNAME VARCHAR(1000) not null
+);
+
+INSERT into MYMEMBER values(null, 'admin', '1234', '관리자');
