@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>너내동: 정보</title>
+
+</head>
+
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link href="../css/style_detail.css" rel="stylesheet" type="text/css">
+
+<body>
+	<div class="header">
+        <a id="head1" href="/myboard/list?page=1">스터디룸</a>
+        <a id="head2" href="/board/list">Q&A</a>
+        <a id="headImg" href="/myboard/main"><img id="logo" src="../image/페이지로고.png"></a>
+        <a id="head3" href="#">마이페이지</a>
+        <a id="head4" href="#">로그아웃</a>
+    </div>
+
+	<div class="all">
+		<div class="first"></div>
+
+		<div class="second">
+			<div class="name">
+				<div id="ment">
+					<h1 th:text="${title}">스터디 이름</h1>
+					<div id="le">
+						<h2 style="margin-top: 13%; margin-left: 20%;" th:text="${userid}">방장
+							이름</h2>
+					</div>
+					<h2 th:text="|모집 인원: ${member}/${people_num}|">모집 인원: 1/4</h2>
+				</div>
+			</div>
+
+			<div class="hr"></div>
+			<div class="sel">
+				<a th:href="@{/board/studyroomdetail(room_id=${room_id})}"><img src="../image/정보_ch.png"></a>
+				<a th:href="@{/board/studyroomquestion(room_id=${room_id})}"><img id="question"
+					src="../image/질문.png" onmouseout="this.src='../image/질문.png'"
+					onmouseover="this.src='../image/질문_ch.png'"></a> <a
+					th:href="@{/board/studyroomsetting(room_id${room_id})}"><img id="set"
+					src="../image/관리.png" onmouseout="this.src='../image/관리.png'"
+					onmouseover="this.src='../image/관리_ch.png'"></a>
+			</div>
+
+			<div class="content">
+				<div class="detail">
+					<span style="margin: 5%;"> 📚 스터디 정보<br> <br> <span
+						th:text="${description}">설명</span>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="first">
+			<div class="box">
+				<div id="box_le">
+					<div class="row">
+
+						<h2 style="margin-top: 13%;" th:text="${userid}">방장 이름</h2>
+					</div>
+					<div class="bhr"></div>
+					<div id="box_ment">
+						<span>스터디 기간</span><br> <br> <span>2023.05.01~2023.07.31</span>
+					</div>
+
+					<div class="bhr"></div>
+
+					<!-- 참여하기 -->
+					<form th:action="@{/board/join(room_id=${room_id})}" method="post">
+						<input type="hidden" name="comment" value="detail"> <input
+							type="hidden" name="name" th:value="${title}">
+
+						<button id="joinbutton" type="submit">
+							<img src="../image/join.png" width="200px" height="52px"
+								style="cursor: pointer">
+						</button>
+					</form>
+
+					<script>
+						let ht = document.getElementsByTagName("h2")[1].innerText
+						ht = (ht).match(/[0-9]+/gi);
+						let current = ht[0];
+						let all = ht[1];
+						console.log(ht);
+						console.log(current);
+						console.log(all);
+						if (current === all) {
+							$(".first>button").css("display", "none");
+						}
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

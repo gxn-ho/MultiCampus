@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>너내동: 관리</title>
+<!--나중에 th 넣어서 스터디 이름 넣어주기 -->
+</head>
+
+<link href="../css/style_detail.css" rel="stylesheet" type="text/css">
+
+<body>
+	<div class="header">
+        <a id="head1" href="/myboard/list?page=1">스터디룸</a>
+        <a id="head2" href="/board/list">Q&A</a>
+        <a id="headImg" href="/myboard/main"><img id="logo" src="../image/페이지로고.png"></a>
+        <a id="head3" href="#">마이페이지</a>
+        <a id="head4" href="#">로그아웃</a>
+    </div>
+
+	<div class="all">
+		<div class="first"></div>
+
+		<div class="second">
+			<div class="name">
+				<div id="ment">
+					<h1 th:text="${title}">스터디 이름</h1>
+					<div id="le">
+						<h2 style="margin-top: 13%; margin-left: 20%;" th:text="${userid}">방장
+							이름</h2>
+					</div>
+					<h2 th:text="|모집 인원: ${member_num}/${people_num}|">모집 인원: 1/4</h2>
+				</div>
+			</div>
+
+			<div class="hr"></div>
+			<div class="sel">
+				<a th:href="@{/board/studyroomdetail(room_id=${room_id})}"><img src="../image/정보.png"
+					onmouseout="this.src='../image/정보.png'"
+					onmouseover="this.src='../image/정보_ch.png'"></a> 
+					<a
+					th:href="@{/board/studyroomquestion(room_id=${room_id})}"><img id="question"
+					src="../image/질문.png" onmouseout="this.src='../image/질문.png'"
+					onmouseover="this.src='../image/질문_ch.png'"></a> 
+					<a
+					th:href="@{/board/studyroomsetting(room_id${room_id})}"><img id="set"
+					src="../image/관리_ch.png"></a>
+			</div>
+
+			<div class="content">
+				<div class="detail">
+					<h2>스터디 정보</h2>
+
+					<form th:action="@{/board/setupdate(room_id=${room_id})}" method="post">
+						<textarea name="description" th:text="${studyroom}">스터디정보</textarea>
+
+						<table>
+							<tbody>
+								<tr th:if="${member == null}">
+									<td colspan="2">멤버가 없습니다.</td>
+								</tr>
+								<tr th:unless="${member == null}">
+									<td th:if="${#lists.isEmpty(member)}" colspan="2">멤버가
+										없습니다.</td>
+								</tr>
+								<tr th:each="list : ${member}" th:unless="${member == null}">
+										<td th:text="${list.user_nm}">
+<!-- 										<form action="/board/memberdelete" method="post"> -->
+<!-- 											<input type="text" name="user_id" -->
+<!-- 												th:value="${list.user_id}" /> -->
+<!-- 											<button type="submit">추방</button> -->
+<!-- 										</form> -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<input type="submit" value="수정 완료">
+						<!-- 버튼 이미지 만들기 -->
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
