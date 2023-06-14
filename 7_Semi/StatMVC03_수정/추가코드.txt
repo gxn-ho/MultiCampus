@@ -1,8 +1,0 @@
-MemberController
-
-
-  session.setAttribute("memberid", lvo.getMemberId());  //로그인 되어있는 사용자의 아이디
-  session.setAttribute("membernm", lvo.getMemberName()); //로그인 되어있는 사용자의 이름
-
-
-건호님이 만드신 MemberController  154째 줄에 저 두 개 코드 넣어주세요!!!
