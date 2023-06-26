@@ -21,7 +21,6 @@
 	
                 <div class="admin_content_wrap">
                     <div class="admin_content_subject"><span>상품 관리</span></div>
-                    
                    	<div class="goods_table_wrap">
                     	<!-- 상품 리스트 O -->
 	                    <c:if test="${listcheck != 'empty'}">
@@ -113,6 +112,8 @@
 <script>
 $(document).ready(function(){
 	
+	/* 등록 성공 이벤트 */
+	
 	let eResult = '<c:out value="${enroll_result}"/>';
 	
 	checkResult(eResult);
@@ -126,52 +127,68 @@ $(document).ready(function(){
 		alert("상품'"+ eResult +"'을 등록하였습니다.");
 		
 	}
-
-});
-
-let searchForm = $('#searchForm');
-let moveForm = $('#moveForm');
-
-/* 작거 검색 버튼 동작 */
-$("#searchForm button").on("click", function(e){
 	
-	e.preventDefault();
+	/* 수정 성공 이벤트 */
+	let modify_result = '${modify_result}';
 	
-	/* 검색 키워드 유효성 검사 */
-	if(!searchForm.find("input[name='keyword']").val()){
-		alert("키워드를 입력하십시오");
-		return false;
+	if(modify_result == 1){
+		alert("수정 완료");
 	}
 	
-	searchForm.find("input[name='pageNum']").val("1");
+	/* 삭제 결과 경고창 */
+	let delete_result = '${delete_result}';
 	
-	searchForm.submit();
+	if(delete_result == 1){
+		alert("삭제 완료");
+	}
 	
+	let searchForm = $('#searchForm');
+	let moveForm = $('#moveForm');
+
+	/* 작거 검색 버튼 동작 */
+	$("#searchForm button").on("click", function(e){
+		
+		e.preventDefault();
+		
+		/* 검색 키워드 유효성 검사 */
+		if(!searchForm.find("input[name='keyword']").val()){
+			alert("키워드를 입력하십시오");
+			return false;
+		}
+		
+		searchForm.find("input[name='pageNum']").val("1");
+		
+		searchForm.submit();
+		
+	});
+
+
+	/* 페이지 이동 버튼 */
+	$(".pageMaker_btn a").on("click", function(e){
+		
+		e.preventDefault();
+		
+		moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+		
+		moveForm.submit();
+		
+	});
+
+	/* 상품 조회 페이지 */
+	$(".move").on("click", function(e){
+		
+		e.preventDefault();
+		
+		moveForm.append("<input type='hidden' name='bookId' value='"+$(this).attr("href") + "'>");
+		moveForm.attr("action", "/admin/goodsDetail");
+		moveForm.submit();
+		
+		
+	});
+
 });
 
 
-/* 페이지 이동 버튼 */
-$(".pageMaker_btn a").on("click", function(e){
-	
-	e.preventDefault();
-	
-	moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-	
-	moveForm.submit();
-	
-});
-
-/* 상품 조회 페이지 */
-$(".move").on("click", function(e){
-	
-	e.preventDefault();
-	
-	moveForm.append("<input type='hidden' name='bookId' value='"+$(this).attr("href") + "'>");
-	moveForm.attr("action", "/admin/goodsDetail");
-	moveForm.submit();
-	
-	
-});
 
 </script>
  

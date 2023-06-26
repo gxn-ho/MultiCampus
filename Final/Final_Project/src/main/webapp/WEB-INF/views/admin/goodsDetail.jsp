@@ -138,29 +138,24 @@
                    		
                    			<div class="btn_section">
                    				<button id="cancelBtn" class="btn">상품 목록</button>
-	                    		<button id="enrollBtn" class="btn enroll_btn">수정 </button>
+	                    		<button id="modifyBtn" class="btn enroll_btn">수정 </button>
 	                    	</div> 
                     </div>      
 
                 	
                 	<form id="moveForm" action="/admin/goodsManage" method="get" >
- 						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+ 						<input type="hidden" name="pageNum" value="${cri.pageNum}">
+						<input type="hidden" name="amount" value="${cri.amount}">
+						<input type="hidden" name="keyword" value="${cri.keyword}">
                 	</form>
                 	
                 </div>
  				<%@include file="../includes/admin/footer.jsp" %>
- 	<script>		
- 		$(document).ready(function(){
+ 	<script>
+	
+		$(document).ready(function(){
 			
-			/* 할인율 값 삽입 */
-			let bookDiscount = '<c:out value="${goodsInfo.bookDiscount}"/>' * 100;
-			$("#discount_interface").attr("value", bookDiscount);
-			
-			});
-	 		
-	 		/* 책 소개 */
+			/* 책 소개 */
 			ClassicEditor
 				.create(document.querySelector('#bookIntro_textarea'))
 				.then(editor => {
@@ -231,7 +226,6 @@
 			console.log('targetCate3.cateCode : ' + targetCate3.cateCode);
 			console.log('targetCate3.cateParent : ' + targetCate3.cateParent);
 			
-
 			for(let i = 0; i < cate3Array.length; i++){
 				if(targetCate3.cateParent === cate3Array[i].cateParent){
 					cateSelect3.append("<option value='"+cate3Array[i].cateCode+"'>" + cate3Array[i].cateName + "</option>");
@@ -261,7 +255,7 @@
 					$(obj).attr("selected", "selected");
 				}
 			});
-
+			
 			for(let i = 0; i < cate1Array.length; i++){
 				cateSelect1.append("<option value='"+cate1Array[i].cateCode+"'>" + cate1Array[i].cateName + "</option>");
 			}
@@ -270,8 +264,29 @@
 				if(targetCate2.cateParent === obj.value){
 					$(obj).attr("selected", "selected");
 				}
-			}); 
-		});
- 	</script>
+			});
+			
+			/* 목록 이동 버튼 */
+			$("#cancelBtn").on("click", function(e){
+				e.preventDefault();
+				$("#moveForm").submit();	
+			});	
+			
+			/* 수정 페이지 이동 */
+			$("#modifyBtn").on("click", function(e){
+				e.preventDefault();
+				let addInput = '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
+				$("#moveForm").append(addInput);
+				$("#moveForm").attr("action", "/admin/goodsModify");
+				$("#moveForm").submit();
+			});
+			
+			
+		}); // $(document).ready
+	
+		
+		
+		
+	</script>
 </body>
 </html>
