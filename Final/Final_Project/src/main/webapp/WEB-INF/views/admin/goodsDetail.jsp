@@ -13,6 +13,16 @@
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/26.0.0/classic/ckeditor.js"></script>
+  <style type="text/css">
+	#result_card img{
+		max-width: 100%;
+	    height: auto;
+	    display: block;
+	    padding: 5px;
+	    margin-top: 10px;
+	    margin: auto;	
+	}
+</style>
 </head>
 <body>
 	<%@include file="../includes/admin/header.jsp" %>
@@ -133,6 +143,18 @@
                     			</div>
                     			<div class="form_section_content bct">
                     				<textarea name="bookContents" id="bookContents_textarea" disabled>${goodsInfo.bookContents}</textarea>
+                    			</div>
+                    		</div>
+                    		
+                    		<div class="form_section">
+                    			<div class="form_section_title">
+                    				<label>상품 이미지</label>
+                    			</div>
+                    			<div class="form_section_content">
+
+									<div id="uploadReslut">
+																		
+									</div>
                     			</div>
                     		</div>
                    		
@@ -266,26 +288,54 @@
 				}
 			});
 			
-			/* 목록 이동 버튼 */
-			$("#cancelBtn").on("click", function(e){
-				e.preventDefault();
-				$("#moveForm").submit();	
-			});	
+			/* 이미지 정보 호출 */
+			let bookId = '<c:out value="${goodsInfo.bookId}"/>';
+			let uploadReslut = $("#uploadReslut");			
 			
-			/* 수정 페이지 이동 */
-			$("#modifyBtn").on("click", function(e){
-				e.preventDefault();
-				let addInput = '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
-				$("#moveForm").append(addInput);
-				$("#moveForm").attr("action", "/admin/goodsModify");
-				$("#moveForm").submit();
+			$.getJSON("/getAttachList", {bookId : bookId}, function(arr){	
+				
+				if(arr.length === 0){	
+					
+					let str = "";
+					str += "<div id='result_card'>";
+					str += "<img src='/resources/img/goodsNoImage.png'>";
+					str += "</div>";
+					
+					uploadReslut.html(str);	
+					
+					return;
+				}
+				
+				let str = "";
+				let obj = arr[0];	
+				
+				let fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+				str += "<div id='result_card'";
+				str += "data-path='" + obj.uploadPath + "' data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "'";
+				str += ">";
+				str += "<img src='/display?fileName=" + fileCallPath +"'>";
+				str += "</div>";		
+				
+				uploadReslut.html(str);						
+				
 			});
 			
-			
 		}); // $(document).ready
-	
 		
+		/* 목록 이동 버튼 */
+		$("#cancelBtn").on("click", function(e){
+			e.preventDefault();
+			$("#moveForm").submit();	
+		});	
 		
+		/* 수정 페이지 이동 */
+		$("#modifyBtn").on("click", function(e){
+			e.preventDefault();
+			let addInput = '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
+			$("#moveForm").append(addInput);
+			$("#moveForm").attr("action", "/admin/goodsModify");
+			$("#moveForm").submit();
+		});
 		
 	</script>
 </body>

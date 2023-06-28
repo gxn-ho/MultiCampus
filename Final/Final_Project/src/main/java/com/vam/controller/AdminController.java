@@ -3,7 +3,10 @@ package com.vam.controller;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -163,6 +166,30 @@ public class AdminController {
 	public String goodsDeletePOST(int bookId, RedirectAttributes rttr) {
 		
 		logger.info("goodsDeletePOST..........");
+		
+		List<AttachImageVO> fileList = adminService.getAttachInfo(bookId);
+		
+		if(fileList != null) {
+			
+			List<Path> pathList = new ArrayList();
+			
+			fileList.forEach(vo ->{
+				
+				// 원본 이미지
+				Path path = Paths.get("C:\\upload", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName());
+				pathList.add(path);
+				
+				// 섬네일 이미지
+				path = Paths.get("C:\\upload", vo.getUploadPath(), "s_" + vo.getUuid()+"_" + vo.getFileName());
+				pathList.add(path);
+				
+			});
+			
+			pathList.forEach(path ->{
+				path.toFile().delete();
+			});
+			
+		}
 		
 		int result = adminService.goodsDelete(bookId);
 		
@@ -399,6 +426,42 @@ public class AdminController {
 		ResponseEntity<List<AttachImageVO>> result = new ResponseEntity<List<AttachImageVO>>(list, HttpStatus.OK);
 		return result;
 
+	}
+	
+	/* 이미지 파일 삭제 */
+	@PostMapping("/deleteFile")
+	public ResponseEntity<String> deleteFile(String fileName){
+		
+		logger.info("deleteFile........" + fileName);
+		
+		File file = null;
+		
+		try {
+			/* 썸네일 파일 삭제 */
+			file = new File("/Users/junggunho/eclipse/image" + URLDecoder.decode(fileName, "UTF-8"));
+			
+			file.delete();
+			
+			/* 원본 파일 삭제 */
+			String originFileName = file.getAbsolutePath().replace("s_", "");
+			
+			logger.info("originFileName : " + originFileName);
+			
+			file = new File(originFileName);
+			
+			file.delete();
+			
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+			return new ResponseEntity<String>("fail", HttpStatus.NOT_IMPLEMENTED);
+			
+		}
+		
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+		
 	}
     
 }
