@@ -19,14 +19,14 @@ import com.vam.model.AttachImageVO;
 
 import lombok.extern.log4j.Log4j;
 
-@Log4j
 @Component
+@Log4j
 public class AttachFileCheckTask {
-	
+
 	@Autowired
 	private AdminMapper mapper;
 	
-private String getFolderYesterDay() {
+	private String getFolderYesterDay() {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -89,5 +89,6 @@ private String getFolderYesterDay() {
 		log.warn("========================================");
 		
 	}
-
+	
+	
 }

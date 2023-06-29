@@ -1,7 +1,7 @@
 package com.vam.model;
 
 public class AttachImageVO {
-	
+
 	/* 경로 */
 	private String uploadPath;
 	
@@ -53,5 +53,4 @@ public class AttachImageVO {
 	}
 	
 	
-
 }

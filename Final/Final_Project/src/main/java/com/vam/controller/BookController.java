@@ -39,9 +39,12 @@ public class BookController {
 	
 	//메인 페이지 이동
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public void mainPageGET() {
+	public void mainPageGET(Model model) {
 		
 		logger.info("메인 페이지 진입");
+		
+		model.addAttribute("cate1", bookService.getCateCode1());
+		model.addAttribute("cate2", bookService.getCateCode2());
 		
 	}
 	
@@ -81,7 +84,7 @@ public class BookController {
 	}
 	
 	/* 상품 검색 */
-	@GetMapping("search")
+	@GetMapping("/search")
 	public String searchGoodsGET(Criteria cri, Model model) {
 		
 		logger.info("cri : " + cri);
@@ -99,6 +102,13 @@ public class BookController {
 		
 		model.addAttribute("pageMaker", new PageDTO(cri, bookService.goodsGetTotal(cri)));
 		
+		String[] typeArr = cri.getType().split("");
+		
+		for(String s : typeArr) {
+			if(s.equals("T") || s.equals("A")) {
+				model.addAttribute("filter_info", bookService.getCateInfoList(cri));		
+			}
+		}
 		
 		return "search";
 		
