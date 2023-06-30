@@ -4,9 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class BookVO {
-	
-	private AttachImageVO imageVO;
-	
+
 	/* 상품 id */
 	private int bookId;
 	
@@ -53,7 +51,7 @@ public class BookVO {
 	private Date updateDate;
 	
 	/* 이미지 정보 */
-	private List<AttachImageVO> imageList;
+	private List<AttachImageVO> imageList;	
 
 	public int getBookId() {
 		return bookId;
@@ -174,7 +172,7 @@ public class BookVO {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
-	
+
 	public List<AttachImageVO> getImageList() {
 		return imageList;
 	}
@@ -192,6 +190,4 @@ public class BookVO {
 				+ ", updateDate=" + updateDate + ", imageList=" + imageList + "]";
 	}
 	
-	
-
 }

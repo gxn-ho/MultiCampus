@@ -38,7 +38,7 @@
                         마이룸
                     </li>
                     <li>
-                        장바구니
+                        <a href="/cart/${member.memberId}">장바구니</a>
                     </li>
                 </c:if>
                 <li>
@@ -76,7 +76,7 @@
                 <c:if test="${ member != null }">
                     <div class="login_success_area">
                         <span>회원 : ${member.memberName}</span>
-                        <span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="￦#,###.##"/></span>
+                        <span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="#,###.##원"/></span>
                         <span>포인트 : <fmt:formatNumber value="${member.point }" pattern="#,###" /></span>
                         <a href="/member/logout.do">로그아웃</a>
                     </div>

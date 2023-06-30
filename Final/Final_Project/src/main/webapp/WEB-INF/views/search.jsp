@@ -77,7 +77,7 @@
 				<c:if test="${ member != null }">
 					<div class="login_success_area">
 						<span>회원 : ${member.memberName}</span>
-						<span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="￦#,###.##"/></span>
+						<span>충전금액 : <fmt:formatNumber value="${member.money }" pattern="#,###.##원"/></span>
 						<span>포인트 : <fmt:formatNumber value="${member.point }" pattern="#,###" /></span>
 						<a href="/member/logout.do">로그아웃</a>
 					</div>
@@ -108,8 +108,8 @@
 						<c:forEach items="${filter_info}" var="filter">
 							<c:if test="${filter.cateGroup eq '2'}">
 								<a href="${filter.cateCode}">${filter.cateName}(${filter.cateCount})</a>
-							</c:if>
-						</c:forEach>
+							</c:if>	
+						</c:forEach>			
 					</div>		
 					
 					<form id="filter_form" action="/search" method="get" >
@@ -118,7 +118,8 @@
 						<input type="hidden" name="type">
 					</form>						
 													
-				</div>	
+				</div>
+	
 				
 				<div class="list_search_result">
 					<table class="type_list">
@@ -142,7 +143,9 @@
 											[${list.cateName}]
 										</div>
 										<div class="title">
+										<a href="/goodsDetail/${list.bookId}">
 											${list.bookName}
+										</a>
 										</div>
 										<div class="author">
 											${list.authorName} 지음 | ${list.publisher} | ${list.publeYear}
